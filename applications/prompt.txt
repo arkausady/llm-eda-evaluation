@@ -1,0 +1,41 @@
+You are a senior software architect and Java developer.
+
+Develop an e-commerce order-processing application based on the following functional requirements:
+
+FR1a: Create and store a customer order.
+FR2: Publish an order-created event.
+FR3: Process payment from the received event.
+FR4: Update inventory after order processing.
+FR5: Generate order status notification.
+FR6: Handle processing failure appropriately.
+
+The application must use an Event-Driven Architecture with asynchronous communication through Apache Kafka.
+
+The application must consist of appropriate services for order processing, payment processing, inventory management, and order status notification.
+
+Technical requirements:
+- Java 25
+- Spring Boot
+- Maven
+- Apache Kafka
+- REST API may be used for initiating the order.
+- Inter-service communication for business events must use Kafka.
+- Use the following Kafka topics:
+  - order-events
+  - payment-events
+  - inventory-events
+
+Generate a complete runnable application including:
+- project structure
+- pom.xml
+- source code
+- configuration files
+- Kafka producer and consumer implementation
+- data models
+- REST endpoints where required
+- error/failure handling
+- unit tests using JUnit
+
+The generated application must be buildable and executable.
+
+Do not provide a conceptual explanation only. Generate the complete source code required to build and run the application.

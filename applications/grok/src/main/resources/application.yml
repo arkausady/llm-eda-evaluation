@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: order-processing
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
+      retries: 3
+      properties:
+        enable.idempotence: true
+        spring.json.add.type.headers: false
+    consumer:
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        spring.json.use.type.headers: false
+    listener:
+      ack-mode: record
+      missing-topics-fatal: false
+
+app:
+  kafka:
+    topics:
+      order-events: order-events
+      payment-events: payment-events
+      inventory-events: inventory-events
+    retry:
+      max-attempts: 3
+      interval-ms: 500
+
+logging:
+  level:
+    com.ecommerce: INFO
+    org.springframework.kafka: INFO
