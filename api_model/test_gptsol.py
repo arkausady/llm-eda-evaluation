@@ -22,7 +22,7 @@ model = "openai/gpt-5.6-sol"
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 prompt_path = BASE_DIR / "applications" / "prompt.txt"
-output_dir = BASE_DIR / "applications" / "gpt"
+output_dir = BASE_DIR / "applications" / "gpt" / "run_03"
 
 # =========================
 # Read prompt

@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: order-processing-app
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.add.type.headers: false
+    consumer:
+      group-id: order-processing-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.example.ecommerce.*"
+        spring.json.value.default.type: "com.example.ecommerce.common.EventEnvelope"
+    listener:
+      missing-topics-fatal: false
+
+kafka:
+  topics:
+    order-events: order-events
+    payment-events: payment-events
+    inventory-events: inventory-events
+
+logging:
+  level:
+    org.springframework.kafka: INFO
+    com.example.ecommerce: DEBUG

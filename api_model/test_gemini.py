@@ -14,7 +14,7 @@ client = OpenAI(
 # =========================
 # Model
 # =========================
-model = "google/gemini-3.6-flash"
+model = "google/gemini-4-argon"
 
 # =========================
 # Path
@@ -22,7 +22,7 @@ model = "google/gemini-3.6-flash"
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 prompt_path = BASE_DIR / "applications" / "prompt.txt"
-output_dir = BASE_DIR / "applications" / "gemini"
+output_dir = BASE_DIR / "applications" / "gemini" / "run_03"
 
 # =========================
 # Read prompt

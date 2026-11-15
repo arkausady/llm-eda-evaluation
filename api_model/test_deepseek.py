@@ -14,7 +14,7 @@ client = OpenAI(
 # =========================
 # Model
 # =========================
-model = "deepseek/deepseek-v4-flash-0731"
+model = "deepseek/deepseek-v4-pro-0813"
 
 # =========================
 # Path
@@ -22,7 +22,7 @@ model = "deepseek/deepseek-v4-flash-0731"
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 prompt_path = BASE_DIR / "applications" / "prompt.txt"
-output_dir = BASE_DIR / "applications" / "deepseek"
+output_dir = BASE_DIR / "applications" / "deepseek" / "run_03"
 
 # =========================
 # Read prompt

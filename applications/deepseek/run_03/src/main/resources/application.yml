@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: ecommerce-order-processing
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.type.mapping: orderCreatedEvent:com.example.ecommerce.model.OrderCreatedEvent,paymentProcessedEvent:com.example.ecommerce.model.PaymentProcessedEvent,inventoryUpdatedEvent:com.example.ecommerce.model.InventoryUpdatedEvent
+    consumer:
+      group-id: ecommerce-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: com.example.ecommerce.model
+        spring.json.type.mapping: orderCreatedEvent:com.example.ecommerce.model.OrderCreatedEvent,paymentProcessedEvent:com.example.ecommerce.model.PaymentProcessedEvent,inventoryUpdatedEvent:com.example.ecommerce.model.InventoryUpdatedEvent
+      auto-offset-reset: earliest
+server:
+  port: 8080

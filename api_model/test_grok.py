@@ -22,7 +22,7 @@ model = "x-ai/grok-4.6"
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 prompt_path = BASE_DIR / "applications" / "prompt.txt"
-output_dir = BASE_DIR / "applications" / "grok"
+output_dir = BASE_DIR / "applications" / "grok" / "run_03"
 
 # =========================
 # Read prompt
